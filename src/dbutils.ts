@@ -37,6 +37,35 @@ class DatabaseUtils{
 
         return con.query(query);
     }
+
+    static async queryByLegendary(boolean: string) {
+        const con = await this.createConnection();
+        const query = `SELECT * FROM pokemon WHERE legendary like '%${boolean}'`;
+
+        return con.query(query);
+    }
+
+    static async queryByHighest(columnName: string) {
+        const con = await this.createConnection();
+        const query = `SELECT * FROM pokemon WHERE ${columnName} = (SELECT MAX(${columnName}) from pokemon)`;
+
+        return con.query(query);
+    }
+
+    static async queryByLowest(columnName: string) {
+        const con = await this.createConnection();
+        const query = `SELECT * FROM pokemon WHERE ${columnName} = (SELECT MIN(${columnName}) from pokemon)`;
+
+        return con.query(query);
+    }
+
+    static async queryByGeneration(num: string) {
+        const con = await this.createConnection();
+        const query = `SELECT * FROM pokemon WHERE generation = ${num}`;
+
+        return con.query(query);
+    }
+
 }
 
 export default DatabaseUtils;
