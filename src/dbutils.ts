@@ -7,7 +7,8 @@ class DatabaseUtils{
     }
     static async createConnection() {
 
-        return mysql.createPool({host: "localhost",
+        return mysql.createPool({
+            host: "localhost",
             user: "desireeAPI",
             password: '123456',
             database: 'pokemonapi',

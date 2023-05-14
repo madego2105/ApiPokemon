@@ -5,7 +5,10 @@ import path from "path";
 
 dotenv.config();
 
+const cors = require('cors');
+
 const app: Express = express();
+app.use(cors())
 const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, '../public')));
 
