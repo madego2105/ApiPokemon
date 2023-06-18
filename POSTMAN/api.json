@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "eb6eba9a-73b5-4da9-8662-659d4d09e17e",
+		"name": "Pokemon API - Desirée González",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28045029"
+	},
+	"item": [
+		{
+			"name": "Name request",
+			"item": [
+				{
+					"name": "Check Charmander",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//peticion sobre name que comprueba cada atributo de Charmander\r",
+									"pm.test('Test request status', function(){\r",
+									"    pm.response.to.have.status('OK');\r",
+									"});\r",
+									"\r",
+									"//Charmander es el primer objeto (y unico) en el array de objetos de la API, por eso el 0\r",
+									"pm.test('Test pokemon name', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.name).to.eql('Charmander');\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon id', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.id).to.eql(4);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon types', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.type1).to.eql('Fire');\r",
+									"    pm.expect(response.type2).to.eql('');\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon total', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.total).to.eql(309);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon hp', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.hp).to.eql(39);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon attack', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.attack).to.eql(52);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon defense', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.defense).to.eql(43);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon spatk', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.spatk).to.eql(60);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon spdef', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.spdef).to.eql(50);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon speed', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.speed).to.eql(65);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon generation', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.generation).to.eql(1);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon legendary', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.legendary).to.eql('False');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{request_name}}/charmander",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{request_name}}",
+								"charmander"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Charmander error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//peticion sobre name que comprueba cada atributo de Charmander forzando un error en uno de ellos\r",
+									"pm.test('Test request status', function(){\r",
+									"    pm.response.to.have.status('OK');\r",
+									"});\r",
+									"\r",
+									"//Charmander es el primer objeto (y unico) en el array de objetos de la API, por eso el 0\r",
+									"pm.test('Test pokemon name', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.name).to.eql('Charmander');\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon id', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.id).to.eql(4);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon types', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.type1).to.eql('Fire');\r",
+									"    pm.expect(response.type2).to.eql('');\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon total', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.total).to.eql(309);\r",
+									"});\r",
+									"\r",
+									"//resultado esperado erroneo Error: 52 Correcto: 39\r",
+									"pm.test('Test pokemon hp', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.hp).to.eql(51);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon attack', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.attack).to.eql(52);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon defense', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.defense).to.eql(43);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon spatk', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.spatk).to.eql(60);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon spdef', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.spdef).to.eql(50);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon speed', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.speed).to.eql(65);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon generation', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.generation).to.eql(1);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon legendary', function(){\r",
+									"    const response = pm.response.json()[0];\r",
+									"    pm.expect(response.legendary).to.eql('False');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{request_name}}/charmander",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{request_name}}",
+								"charmander"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Non-exist Pokemon",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//peticion sobre name que comprueba un pokemon que no existe\r",
+									"pm.test('Test request status', function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test not found body', function(){\r",
+									"    const response = pm.response.text();\r",
+									"    pm.expect(response).to.eql('Not found');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{request_name}}/doesnotexist",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{request_name}}",
+								"doesnotexist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Type request",
+			"item": [
+				{
+					"name": "Check Charmeleon",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//peticion sobre type que comprueba cada atributo de Charmeleon\r",
+									"pm.test('Test request status', function(){\r",
+									"    pm.response.to.have.status('OK');\r",
+									"});\r",
+									"\r",
+									"//Charmeleon es el segundo objeto en el array de objetos de la API, por eso el 1\r",
+									"pm.test('Test pokemon name', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.name).to.eql('Charmeleon');\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon id', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.id).to.eql(5);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon types', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.type1).to.eql('Fire');\r",
+									"    pm.expect(response.type2).to.eql('');\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon total', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.total).to.eql(405);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon hp', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.hp).to.eql(58);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon attack', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.attack).to.eql(64);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon defense', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.defense).to.eql(58);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon spatk', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.spatk).to.eql(80);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon spdef', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.spdef).to.eql(65);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon speed', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.speed).to.eql(80);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon generation', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.generation).to.eql(1);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon legendary', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.legendary).to.eql('False');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{request_type}}/fire",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{request_type}}",
+								"fire"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Charmeleon error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//peticion sobre type que comprueba cada atributo de Charmeleon\r",
+									"pm.test('Test request status', function(){\r",
+									"    pm.response.to.have.status('OK');\r",
+									"});\r",
+									"\r",
+									"//Charmeleon es el segundo objeto en el array de objetos de la API, por eso el 1\r",
+									"pm.test('Test pokemon name', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.name).to.eql('Charmeleon');\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon id', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.id).to.eql(5);\r",
+									"});\r",
+									"\r",
+									"//resultado esperado erroneo Error: Fairy Correcto: Fire\r",
+									"pm.test('Test pokemon types', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.type1).to.eql('Fairy');\r",
+									"    pm.expect(response.type2).to.eql('');\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon total', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.total).to.eql(405);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon hp', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.hp).to.eql(58);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon attack', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.attack).to.eql(64);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon defense', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.defense).to.eql(58);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon spatk', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.spatk).to.eql(80);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon spdef', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.spdef).to.eql(65);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon speed', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.speed).to.eql(80);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon generation', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.generation).to.eql(1);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test pokemon legendary', function(){\r",
+									"    const response = pm.response.json()[1];\r",
+									"    pm.expect(response.legendary).to.eql('False');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{request_type}}/fire",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{request_type}}",
+								"fire"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Non-exist type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//peticion sobre type que comprueba un pokemon que no existe\r",
+									"pm.test('Test request status', function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('Test not found body', function(){\r",
+									"    const response = pm.response.text();\r",
+									"    pm.expect(response).to.eql('Not found');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{request_type}}/doesnotexist",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{request_type}}",
+								"doesnotexist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
