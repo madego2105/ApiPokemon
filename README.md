@@ -32,6 +32,23 @@ de la API en local:
 
 ``` node dist/index.js ```
 
+# Listado de consultas
+
+El listado de consultas que se pueden hacer es:
+- Por nombre:
+http://localhost:3000/name/{pokemonName}/
+- Por ID:
+http://localhost:3000/id/{id}/
+- Por tipo:
+http://localhost:3000/type/{pokemonType}/
+- Listado de legendarios (true/false):
+http://localhost:3000/legendary/{boolean}/
+- El que tiene mayor valor:
+http://localhost:3000/highest/{columnName}/
+- El que tiene menor valor:
+http://localhost:3000/lowest/{columnName}/
+- Por generación:
+http://localhost:3000/generation/{num}/
 
 
 # Levantar el servicio de la aplicación (frontend)
