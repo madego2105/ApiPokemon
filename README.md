@@ -69,7 +69,7 @@ construida).
 
 Por último, se utiliza el siguiente comando para levantar el servicio.
 
-``` nom run start ```
+``` npm run start ```
 
 # Ejecución de pruebas de Postman con Newman
 
